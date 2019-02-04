@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from 'antd/lib/button';
+import { Button } from 'antd';
 import './Home.css';
 
 class App extends Component {
