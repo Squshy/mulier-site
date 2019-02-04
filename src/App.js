@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import App from './containers/App/App.js';
+import Home from './containers/Home/Home.js';
 import Header from './containers/Header/Header.js';
 
 function BasicExample() {
@@ -14,14 +15,6 @@ function BasicExample() {
         <Route path="/app" component={App} />
       </div>
     </Router>
-  );
-}
-
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-    </div>
   );
 }
 
