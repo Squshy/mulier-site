@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
-import './Home.css';
+import { Carousel } from 'antd';
+import { Layout } from 'antd';
+import './Home.less';
 
-class App extends Component {
+const { Content } = Layout;
+
+
+class Home extends Component {
   render() {
     return (
-      <div>
-        <Button type="primary">Button</Button>
-      </div>
+        <div>
+            <Layout>
+                <Content>
+                    <Carousel autoplay>
+                        <div><h3>1</h3></div>
+                        <div><h3>2</h3></div>
+                        <div><h3>3</h3></div>
+                        <div><h3>4</h3></div>
+                    </Carousel>
+                </Content>
+            </Layout>
+        </div>
     );
   }
 }
 
-export default App;
+export default Home;
