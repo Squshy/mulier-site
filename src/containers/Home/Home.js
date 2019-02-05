@@ -1,24 +1,53 @@
 import React, { Component } from 'react';
-import { Carousel } from 'antd';
-import { Layout } from 'antd';
-import './Home.less';
-
-const { Content } = Layout;
+import { connect } from 'react-redux';
+import Home from '../../components/Home/Home';
+import * as homeActions from '../../actions/homeActions';
 
 
-class Home extends Component {
-  render() {
-    return (
-        <Content>
-            <Carousel autoplay>
-                <div><h3>1</h3></div>
-                <div><h3>2</h3></div>
-                <div><h3>3</h3></div>
-                <div><h3>4</h3></div>
-            </Carousel>
-        </Content>
-    );
-  }
+/*  NOTES
+-   Replace getCarouselImages with dynamic call
+*/
+
+class HomeContainer extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            carouselImages: []
+        }
+    }
+
+    componentDidMount() {
+        this.props.getCarouselImages();
+        console.log('Props:\n' + JSON.stringify(this.props, null, 4))
+        this.setState({
+            carouselImages: this.props.carouselImages
+        });
+    }
+
+    render() {
+        return (
+            <Home carouselImages={this.state.carouselImages}/>
+        );
+    }
 }
 
-export default Home;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getCarouselImages: () => {
+            dispatch(homeActions.getCarouselImages())
+        }
+    }
+}
+
+const mapStateToProps = (state) => {
+    console.log('State:\n' + JSON.stringify(state, null, 4));
+    return {
+        carouselImages: state.homeReducer.carouselImages
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(HomeContainer);
