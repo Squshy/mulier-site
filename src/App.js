@@ -3,32 +3,36 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import App from './containers/App/App.js';
 import Home from './containers/Home/Home.js';
 import Header from './containers/Header/Header.js';
+import { Layout } from 'antd';
+
+const { Content } = Layout;
+
 
 function BasicExample() {
   return (
     <Router>
-      <div>
+      <Layout>
         <Header />
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/topics" component={Topics} />
         <Route path="/app" component={App} />
-      </div>
+      </Layout>
     </Router>
   );
 }
 
 function About() {
   return (
-    <div>
+    <Content>
       <h2>About</h2>
-    </div>
+    </Content>
   );
 }
 
 function Topics({ match }) {
   return (
-    <div>
+    <Content>
       <h2>Topics</h2>
       <ul>
         <li>
@@ -48,15 +52,15 @@ function Topics({ match }) {
         path={match.path}
         render={() => <h3>Please select a topic.</h3>}
       />
-    </div>
+    </Content>
   );
 }
 
 function Topic({ match }) {
   return (
-    <div>
+    <Content>
       <h3>{match.params.topicId}</h3>
-    </div>
+    </Content>
   );
 }
 
