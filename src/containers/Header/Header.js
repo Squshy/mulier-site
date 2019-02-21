@@ -23,31 +23,31 @@ class HeaderContainer extends Component {
 
     render() {
         return (
-                <Row className="header-container">
-                    <Col span={24}>
-                        <Menu
-                            onClick={this.handleClick}
-                            selectedKeys={[this.state.current]}
-                            mode="horizontal"
-                        >
-                            <Menu.Item key="products">
-                                <Link to="/">Products</Link>
-                            </Menu.Item>
-                            <Menu.Item key="about">
-                                <Link to="/about">About</Link>
-                            </Menu.Item>
-                            <Menu.Item id="mulier-header-logo">
-                                <img src={Images.logo} />
-                            </Menu.Item>
-                            <Menu.Item key="contact">
-                                <Link to="/topics">Contact</Link>
-                            </Menu.Item>
-                            <Menu.Item key="user">
-                                <Link to="/app">Login</Link>
-                            </Menu.Item>
-                        </Menu>
-                    </Col>
-                </Row>
+            <Row className="header-container">
+                <Col span={24}>
+                    <Menu
+                        onClick={this.handleClick}
+                        selectedKeys={[this.state.current]}
+                        mode="horizontal"
+                    >
+                        <Menu.Item key="products">
+                            <Link to="/">Products</Link>
+                        </Menu.Item>
+                        <Menu.Item key="about">
+                            <Link to="/about">About</Link>
+                        </Menu.Item>
+                        <Menu.Item id="mulier-header-logo">
+                            <img src={Images.logo} />
+                        </Menu.Item>
+                        <Menu.Item key="contact">
+                            <Link to="/topics">Contact</Link>
+                        </Menu.Item>
+                        <Menu.Item key="user">
+                            <Link to="/app">Login</Link>
+                        </Menu.Item>
+                    </Menu>
+                </Col>
+            </Row>
         );
     }
 }

@@ -13,17 +13,17 @@ class HomeContainer extends Component {
         super(props);
 
         this.state = {
-            carouselImages: []
+            carouselImages: [{text: 'Image 1'},{text: 'Image 2'},{text: 'Image 3'}]
         }
     }
 
-    componentDidMount() {
-        this.props.getCarouselImages();
-        console.log('Props:\n' + JSON.stringify(this.props, null, 4))
-        this.setState({
-            carouselImages: this.props.carouselImages
-        });
-    }
+    // componentDidMount() {
+    //     this.props.getCarouselImages();
+    //     console.log('Props:\n' + JSON.stringify(this.props, null, 4))
+    //     this.setState({
+    //         carouselImages: this.props.carouselImages
+    //     });
+    // }
 
     render() {
         return (

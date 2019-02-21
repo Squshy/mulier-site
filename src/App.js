@@ -11,7 +11,7 @@ const { Content } = Layout;
 function BasicExample() {
   return (
     <Router>
-      <Layout>
+      <Layout style={{backgroundColor: '#FFF'}}>
         <Header />
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
