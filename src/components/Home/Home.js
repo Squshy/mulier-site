@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Carousel, Layout, Row, Col, Card } from 'antd';
+import { Carousel, Layout, Card } from 'antd';
 import './Home.less';
-import { Images } from '../../Themes'
-
-const { Content } = Layout;
+import { Images, Colors } from '../../Themes'
 
 class Home extends Component {
 
@@ -19,21 +17,24 @@ class Home extends Component {
 
     render() {
         return (
-            <Content>
+            <div>
                 <Layout>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12 py-3">
-                            <Carousel autoplay>
-                                {this.props.carouselImages ? this.showCarouselImages() : null}
-                            </Carousel>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-12 py-3">
+                                <Carousel autoplay>
+                                    {this.props.carouselImages ? this.showCarouselImages() : null}
+                                </Carousel>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </Layout>
+                {/*
+                    Move into images component
+                */}
                 <div className="container">
-                    <div className="row justify-content-md-center">
-                        <div className="col-4 my-5">
+                    <div className="row justify-content-center">
+                        <div className="col-lg-4 col-md-4 col-sm-8 col-xs-12 py-5">
                             <Card 
                                 style={{ textAlign: 'center' }} 
                                 title="Elegant Designs" 
@@ -44,7 +45,7 @@ class Home extends Component {
                                 headStyle={{color: 'white'}}
                             />
                         </div>
-                        <div className="col-4 my-5">
+                        <div className="col-lg-4 col-md-4 col-sm-8 col-xs-12 py-5">
                             <Card 
                                 style={{ textAlign: 'center'}} 
                                 title="Custom Jewelry" 
@@ -55,7 +56,7 @@ class Home extends Component {
                                 headStyle={{color: 'white'}}
                             />
                         </div>
-                        <div className="col-4 my-5">
+                        <div className="col-lg-4 col-md-4 col-sm-8 col-xs-12 py-5">
                             <Card 
                                 style={{ textAlign: 'center'}} 
                                 title="Fashionable Wear" 
@@ -68,7 +69,18 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-            </Content>
+                <Layout>
+                    <div className="container">
+                        <div className="row justify-content-center py-4">
+                            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 py-4" 
+                                style={{backgroundColor: 'white'}}>
+                                <h1 style={{ color: Colors.primary}}><i>We are Mulier</i></h1>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                            </div>
+                        </div>
+                    </div>
+                </Layout>
+            </div>
         );
     }
 }

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import App from './containers/App/App.js';
 import Home from './containers/Home/Home.js';
 import Header from './containers/Header/Header.js';
+import Footer from './containers/Footer/Footer.js';
 import { Layout } from 'antd';
 
 const { Content } = Layout;
@@ -13,10 +14,13 @@ function BasicExample() {
     <Router>
       <Layout style={{backgroundColor: '#FFF'}}>
         <Header />
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/topics" component={Topics} />
-        <Route path="/app" component={App} />
+        <Content>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/topics" component={Topics} />
+            <Route path="/app" component={App} />
+        </Content>
+        <Footer />
       </Layout>
     </Router>
   );
