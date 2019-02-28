@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Footer.less';
 import Footer from '../../components/Footer/Footer'
 
 
