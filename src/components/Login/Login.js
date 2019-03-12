@@ -23,6 +23,7 @@ const LoginModal = ({ isOpen, toggleShow }) => {
             isOpen={isOpen}
             toggle={toggleShow}
         >
+            <ModalHeader toggle={toggleShow}>Login</ModalHeader>
             <ModalBody>
                 <Form className="form">
                 <Col>
