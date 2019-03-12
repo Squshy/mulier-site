@@ -27,7 +27,9 @@ class HomeContainer extends Component {
 
     render() {
         return (
-            <Home carouselImages={this.state.carouselImages}/>
+            <div>
+                <Home carouselImages={this.state.carouselImages}/>
+            </div>
         );
     }
 }
