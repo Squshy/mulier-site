@@ -1,15 +1,55 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
-import './Home.css';
+import { connect } from 'react-redux';
+import Home from '../../components/Home/Home';
+import * as homeActions from '../../actions/homeActions';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Button type="primary">Button</Button>
-      </div>
-    );
-  }
+
+/*  NOTES
+-   Replace getCarouselImages with dynamic call
+*/
+
+class HomeContainer extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            carouselImages: [{text: 'Image 1'},{text: 'Image 2'},{text: 'Image 3'}]
+        }
+    }
+
+    // componentDidMount() {
+    //     this.props.getCarouselImages();
+    //     console.log('Props:\n' + JSON.stringify(this.props, null, 4))
+    //     this.setState({
+    //         carouselImages: this.props.carouselImages
+    //     });
+    // }
+
+    render() {
+        return (
+            <div>
+                <Home carouselImages={this.state.carouselImages}/>
+            </div>
+        );
+    }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getCarouselImages: () => {
+            dispatch(homeActions.getCarouselImages())
+        }
+    }
+}
+
+const mapStateToProps = (state) => {
+    console.log('State:\n' + JSON.stringify(state, null, 4));
+    return {
+        carouselImages: state.homeReducer.carouselImages
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(HomeContainer);
