@@ -10,3 +10,9 @@ export const LoginTypes = {
 export const UserTypes = {
     SET_USER_INFO: 'SET_USER_INFO'
 }
+
+export const ProductTypes = {
+    PRODUCTS_REQUEST: 'PRODUCTS_REQUEST',
+    PRODUCTS_SUCCESS: 'PRODUCTS_SUCCESS',
+    PRODUCTS_FAILURE: 'PRODUCTS_FAILURE'
+}

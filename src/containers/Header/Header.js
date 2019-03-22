@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as loginActions from '../../actions/LoginActions';
 import { Link } from "react-router-dom";
-import { Row, Col, Layout, Menu, Icon, Alert, Modal } from 'antd';
+import { Row, Col, Menu } from 'antd';
 import './Header.less';
 import { Images } from '../../Themes';
 import Login from '../../components/Login/Login';
@@ -57,9 +57,10 @@ class HeaderContainer extends Component {
     }
 
     handleClick = (e) => {
-        this.setState({
-            current: e.key,
-        });
+        if(e.key !== "user")
+            this.setState({
+                current: e.key,
+            });
     }
 
     login() {
@@ -78,8 +79,6 @@ class HeaderContainer extends Component {
     }
 
     render() {
-        console.log('HEADER PROPS:\n'+JSON.stringify(this.props, null, 4))
-        console.log('Header state:\n' +JSON.stringify(this.state, null, 4))
         return (
             <div className="container">
                 <Row className="header-container" id="mulier-header">
@@ -90,13 +89,13 @@ class HeaderContainer extends Component {
                             mode="horizontal"
                         >
                             <Menu.Item key="products">
-                                <Link to="/">Products</Link>
+                                <Link to="/products">Products</Link>
                             </Menu.Item>
                             <Menu.Item key="about">
                                 <Link to="/about">About</Link>
                             </Menu.Item>
                             <Menu.Item id="mulier-header-logo">
-                                <img src={Images.logo} />
+                                <Link to="/"><img src={Images.logo} alt="Mulier Logo"/></Link>
                             </Menu.Item>
                             <Menu.Item key="contact">
                                 <Link to="/topics">Contact</Link>

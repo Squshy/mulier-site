@@ -18,7 +18,6 @@ import { Link } from "react-router-dom";
 import './Login.less';
 
 const LoginModal = ({ isOpen, toggleShow, updateEmail, updatePassword, login, isEmailValid, loginError }) => {
-    console.log(loginError)
     return (
         <Modal
             isOpen={isOpen}
@@ -68,7 +67,9 @@ const LoginModal = ({ isOpen, toggleShow, updateEmail, updatePassword, login, is
             </ModalBody>
             <ModalFooter>
                 <div className="container-fluid">
-                    <Link to="/" className="text-center">Not yet a member? Sign up!</Link>
+                    <p className="text-center">
+                        <Link to="/">Not yet a member? Sign up!</Link>
+                    </p>
                 </div>
             </ModalFooter>
         </Modal>
