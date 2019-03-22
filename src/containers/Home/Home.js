@@ -43,7 +43,6 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log('State:\n' + JSON.stringify(state, null, 4));
     return {
         carouselImages: state.homeReducer.carouselImages
     }

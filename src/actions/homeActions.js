@@ -1,5 +1,4 @@
-import * as TYPES from '../constants/Types'
-import * as Images from '../Themes/Images'
+import * as TYPES from '../constants/Types';
 
 export const getCarouselImages = () => dispatch => {
     let images = [

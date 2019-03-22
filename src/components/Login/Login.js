@@ -6,6 +6,7 @@ import {
     ModalFooter, 
     Form, 
     FormGroup,
+    FormText,
     Col,
     Row,
     Container,
@@ -15,9 +16,8 @@ import {
 import { Button } from 'antd';
 import { Link } from "react-router-dom";
 import './Login.less';
-import Colors from '../../Themes/Colors';
 
-const LoginModal = ({ isOpen, toggleShow }) => {
+const LoginModal = ({ isOpen, toggleShow, updateEmail, updatePassword, login, isEmailValid, loginError }) => {
     return (
         <Modal
             isOpen={isOpen}
@@ -27,13 +27,17 @@ const LoginModal = ({ isOpen, toggleShow }) => {
             <ModalBody>
                 <Form className="form">
                 <Col>
+                    <FormText className="login-error">{loginError === null ? " " : loginError}</FormText>
                     <FormGroup>
                         <Label>Email</Label>
                         <Input
                             type="email"
                             name="email"
                             id="exampleEmail"
-                            placeholder="myemail@email.com"
+                            placeholder="email"
+                            valid={isEmailValid === true}
+                            invalid={isEmailValid === false}
+                            onChange={updateEmail}
                         />
                     </FormGroup>
                 </Col>
@@ -44,17 +48,18 @@ const LoginModal = ({ isOpen, toggleShow }) => {
                         type="password"
                         name="password"
                         id="examplePassword"
-                        placeholder="********"
+                        placeholder="password"
+                        onChange={updatePassword}
                     />
                     </FormGroup>
                 </Col>
                 <Container>
                     <Row>
                         <Col xs="12" sm="12" md="12" lg="6" xl="6" className="my-2">
-                            <Button type="primary" block>Sign In</Button>
+                            <Button type="primary" block onClick={() => login()}>Sign In</Button>
                         </Col>
                         <Col xs="12" sm="12" md="12" lg="6" xl="6" className="my-2">
-                            <Button type="danger" fullWidth={true} block onClick={() => toggleShow()}>Cancel</Button>
+                            <Button type="danger" block onClick={() => toggleShow()}>Cancel</Button>
                         </Col>
                     </Row>
                 </Container>
@@ -62,7 +67,9 @@ const LoginModal = ({ isOpen, toggleShow }) => {
             </ModalBody>
             <ModalFooter>
                 <div className="container-fluid">
-                    <Link to="/" className="text-center">Not yet a member? Sign up!</Link>
+                    <p className="text-center">
+                        <Link to="/">Not yet a member? Sign up!</Link>
+                    </p>
                 </div>
             </ModalFooter>
         </Modal>
