@@ -2,7 +2,7 @@ import { ProductTypes } from '../constants/Types';
 
 const initialState = {
     productError: null,
-    productFetching: null,
+    productFetching: false,
     products: []
 }
 

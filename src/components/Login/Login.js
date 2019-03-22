@@ -27,7 +27,7 @@ const LoginModal = ({ isOpen, toggleShow, updateEmail, updatePassword, login, is
             <ModalBody>
                 <Form className="form">
                 <Col>
-                    <FormText className="login-error">{loginError === null ? " " : loginError}</FormText>
+                    <p className="login-error">{loginError === null ? " " : loginError}</p>
                     <FormGroup>
                         <Label>Email</Label>
                         <Input

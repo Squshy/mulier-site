@@ -7,9 +7,11 @@ import * as productActions from '../../actions/ProductActions';
 class ProductContainer extends Component {
     constructor(props) {
         super(props);
-
+        
         this.state = {
-            products: props.products
+            products: props.products,
+            fetching: props.productFetching,
+            error: props.productError
         }
     }
 
@@ -19,22 +21,31 @@ class ProductContainer extends Component {
 
     static getDerivedStateFromProps(nextProps, prevState) {
         if(nextProps.products !== prevState.products){
-            return { products: nextProps.products};
+            return { products: nextProps.products };
+        } else if(nextProps.productFetching !== prevState.fetching) {
+            return { fetching: nextProps.productFetching }
+        } else if(nextProps.productError !== prevState.error) {
+            return { error: nextProps.error }
         }
         else return null;
     }
      
-    // componentDidUpdate(prevProps, prevState) {
-    //     if(prevProps.someValue!==this.props.someValue){
-    //         //Perform some operation here
-    //         this.setState({someState: someValue});
-    //         this.classMethod();
-    //     }
-    // }
+    componentDidUpdate(prevProps, prevState) {
+        if(prevProps.productFetching !== this.props.productFetching){
+            this.setState({fetching: this.props.productFetching});
+        }
+        if(prevProps.productError !== this.props.productError) {
+            this.setState({ error: this.props.productError })
+        }
+    }
 
     render() {
         return (
-            <Product products={this.state.products} />
+            <Product 
+                products={this.state.products} 
+                fetching={this.state.fetching}
+                error={this.state.error}
+            />
         );
     }
 }
@@ -50,7 +61,9 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
     return {
         user: { ...state.user },
-        products: [ ...state.product.products ]
+        products: [ ...state.product.products ],
+        productFetching: state.product.productFetching,
+        productError: state.product.error
     }
 }
 

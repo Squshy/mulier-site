@@ -13,7 +13,7 @@ const { Content } = Layout;
 function BasicExample() {
   return (
     <Router>
-        <div class="h-100 d-flex flex-column">
+        <div className="h-100 d-flex flex-column">
             <Header />
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
